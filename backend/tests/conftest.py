@@ -3,7 +3,8 @@
 import pytest
 from fastapi.testclient import TestClient
 from app.api import app
-from app.storage import storage
+from app import api as api_module
+from app.storage import Storage
 
 
 @pytest.fixture
@@ -13,11 +14,31 @@ def client():
 
 
 @pytest.fixture(autouse=True)
-def clear_storage():
-    """Clear storage before each test."""
-    storage.clear()
-    yield
-    storage.clear()
+def use_memory_storage():
+    """Override file storage with in-memory storage for tests.
+    
+    This fixture runs automatically before each test and:
+    1. Replaces the file storage with in-memory storage
+    2. Clears the storage
+    3. Restores original storage after test
+    """
+    # Save original storage
+    original_storage = api_module.storage
+    
+    # Replace with in-memory storage
+    test_storage = Storage()
+    api_module.storage = test_storage
+    
+    # Clear storage before test
+    test_storage.clear()
+    
+    yield test_storage
+    
+    # Clear storage after test
+    test_storage.clear()
+    
+    # Restore original storage
+    api_module.storage = original_storage
 
 
 @pytest.fixture
