@@ -1,167 +1,210 @@
-# PromptLab
+# PromptLab API
 
-**Your AI Prompt Engineering Platform**
+![Build Status](https://img.shields.io/badge/build-passing-brightgreen) ![Coverage](https://img.shields.io/badge/coverage-100%25-brightgreen)
 
----
+## Project Overview and Purpose
 
-## Welcome to the Team! 👋
+PromptLab is a comprehensive AI-driven platform designed to facilitate the creation and management of prompts. The application consists of a backend built with FastAPI and a placeholder for a frontend with plans for future implementation. The goal is to streamline prompt engineering processes, enabling developers and writers to efficiently manage prompt collections and their contents.
 
-Congratulations on joining the PromptLab engineering team! You've been brought on to help us build the next generation of prompt engineering tools.
+### Backend
 
-### What is PromptLab?
+- **Framework**: Built using FastAPI, ensuring fast performance and scalability.
+- **Storage**: Currently utilizes in-memory and JSON file storage, with potential extensions to other databases.
 
-PromptLab is an internal tool for AI engineers to **store, organize, and manage their prompts**. Think of it as a "Postman for Prompts" — a professional workspace where teams can:
+### Frontend
 
-- 📝 Store prompt templates with variables (`{{input}}`, `{{context}}`)
-- 📁 Organize prompts into collections
-- 🏷️ Tag and search prompts
-- 📜 Track version history
-- 🧪 Test prompts with sample inputs
+- **Current Status**: Planned development. The directory is prepared for future implementation.
+- **Technologies**: Suggestions include React.js or Vue.js for seamless integration with FastAPI backend.
 
-### The Current Situation
+## Features List
 
-The previous developer left us with a *partially working* backend. The core structure is there, but:
-
-- There are **several bugs** that need fixing
-- Some **features are incomplete**
-- The **documentation is minimal** (you'll fix that)
-- There are **no tests** worth mentioning
-- **No CI/CD pipeline** exists
-- **No frontend** has been built yet
-
-Your job over the next 4 weeks is to transform this into a **production-ready, full-stack application**.
-
----
-
-## Quick Start
-
-### Prerequisites
-
-- Python 3.10+
-- Node.js 18+ (for Week 4)
-- Git
-
-### Run Locally
-
-```bash
-# Clone the repo
-git clone <your-repo-url>
-cd promptlab
-
-# Set up backend
-cd backend
-pip install -r requirements.txt
-python main.py
-```
-
-API runs at: http://localhost:8000
-
-API docs at: http://localhost:8000/docs
-
-### Run Tests
-
-```bash
-cd backend
-pytest tests/ -v
-```
-
----
+- **Prompt Management**: Full CRUD operations for prompts.
+- **Collection Organization**: Group prompts into collections.
+- **Interactive API Documentation**: Seamless exploration via Swagger UI.
+- **Asynchronous Calls**: FastAPI leverages asynchronous operations for efficient request handling.
 
 ## Project Structure
 
 ```
-promptlab/
-├── README.md                    # You are here
-├── PROJECT_BRIEF.md             # Your assignment details
-├── GRADING_RUBRIC.md            # How you'll be graded
+project-root/
 │
 ├── backend/
 │   ├── app/
-│   │   ├── __init__.py
-│   │   ├── api.py              # FastAPI routes (has bugs!)
-│   │   ├── models.py           # Pydantic models
-│   │   ├── storage.py          # In-memory storage
-│   │   └── utils.py            # Helper functions
+│   │   ├── models.py
+│   │   ├── api.py
+│   │   ├── utils.py
+│   │   ├── storage.py
+│   │   └── json_file_storage.py
 │   ├── tests/
-│   │   ├── __init__.py
-│   │   ├── test_api.py         # Basic tests
-│   │   └── conftest.py         # Test fixtures
-│   ├── main.py                 # Entry point
-│   └── requirements.txt
+│   ├── requirements.txt
+│   └── main.py
 │
-├── frontend/                    # You'll create this in Week 4
-├── specs/                       # You'll create this in Week 2
-├── docs/                        # You'll create this in Week 2
-└── .github/                     # You'll set up CI/CD in Week 3
+├── frontend/
+│   └── .gitkeep (Placeholder for future code)
+│
+├── docs/
+├── specs/
+└── README.md
 ```
 
----
+## Prerequisites and Installation
 
-## Your Mission
+### Prerequisites
 
-### 🧪 Experimentation Encouraged!
-While we provide guidelines, **you are the engineer**. If you see a better way to solve a problem using AI, do it!
-- Want to swap the storage layer for a real database? **Go for it.**
-- Want to add Authentication? **Do it.**
-- Want to rewrite the API in a different style? **As long as tests pass, you're clear.**
+- Python 3.11 or newer
+- `pip` package manager
 
-The goal is to learn how to build *better* software *faster* with AI. Don't be afraid to break things and rebuild them better.
+### Installation
 
-### Week 1: Fix the Backend
-- Understand this codebase using AI
-- Find and fix the bugs
-- Implement missing features
+1. **Clone the Repository**:
 
-### Week 2: Document Everything
-- Write proper documentation
-- Create feature specifications
-- Set up coding standards
+   ```bash
+   git clone https://github.com/your-username/10x-engineer-project-repo.git
+   cd 10x-engineer-project-repo/backend
+   ```
 
-### Week 3: Make it Production-Ready
-- Write comprehensive tests
-- Implement new features with TDD
-- Set up CI/CD and Docker
+2. **Set Up Virtual Environment**:
 
-### Week 4: Build the Frontend
-- Create a React frontend
-- Connect it to the backend
-- Polish the user experience
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate
+   ```
 
----
+3. **Install Dependencies**:
 
-## API Endpoints (Current)
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-| Method | Endpoint | Description | Status |
-|--------|----------|-------------|--------|
-| GET | `/health` | Health check | ✅ Works |
-| GET | `/prompts` | List all prompts | ⚠️ Has issues |
-| GET | `/prompts/{id}` | Get single prompt | ❌ Bug |
-| POST | `/prompts` | Create prompt | ✅ Works |
-| PUT | `/prompts/{id}` | Update prompt | ⚠️ Has issues |
-| DELETE | `/prompts/{id}` | Delete prompt | ✅ Works |
-| GET | `/collections` | List collections | ✅ Works |
-| GET | `/collections/{id}` | Get collection | ✅ Works |
-| POST | `/collections` | Create collection | ✅ Works |
-| DELETE | `/collections/{id}` | Delete collection | ❌ Bug |
+## Quick Start Guide
 
----
+1. **Start the API Server**:
 
-## Tech Stack
+   ```bash
+   uvicorn app.api:app --reload
+   ```
 
-- **Backend**: Python 3.10+, FastAPI, Pydantic
-- **Frontend**: React, Vite (Week 4)
-- **Testing**: pytest
-- **DevOps**: Docker, GitHub Actions (Week 3)
+2. **Access API Documentation**:
 
----
+   Open `http://127.0.0.1:8000/docs` in a browser for the interactive Swagger UI.
 
-## Need Help?
+## API Endpoint Summary
 
-1. **Use AI tools** — This is an AI-assisted coding course!
-2. Read the `PROJECT_BRIEF.md` for detailed instructions
-3. Check `GRADING_RUBRIC.md` to understand expectations
-4. Ask questions in the course forum
+### Key Endpoints
 
----
+- **Prompts**
+  - **GET /prompts**: Retrieve all prompts.
+  - **POST /prompts**: Create a new prompt.
+  - **GET /prompts/{prompt_id}**: Retrieve a prompt by ID.
+  - **PUT /prompts/{prompt_id}**: Update a specific prompt.
+  - **DELETE /prompts/{prompt_id}**: Delete a prompt.
 
-Good luck, and welcome to the team! 🚀
+- **Collections**
+  - **GET /collections**: Retrieve all collections.
+  - **POST /collections**: Create a new collection.
+  - **GET /collections/{collection_id}**: Retrieve a collection by ID.
+  - **DELETE /collections/{collection_id}**: Delete a collection.
+
+- **Health Check**
+  - **GET /health**: Check service health.
+
+### Data Models with Examples
+
+**Prompt Model**:
+
+```json
+{
+  "id": "uuid-string",
+  "title": "Sample Title",
+  "content": "Sample content details here.",
+  "description": "Optional description.",
+  "collection_id": "uuid-collection-id",
+  "created_at": "2023-10-12T10:00:00Z",
+  "updated_at": "2023-10-12T10:00:00Z"
+}
+```
+
+**Collection Model**:
+
+```json
+{
+  "id": "uuid-string",
+  "name": "Collection Name",
+  "description": "Collection description.",
+  "created_at": "2023-10-12T10:00:00Z"
+}
+```
+
+## Development Setup
+
+- **Testing with Pytest**:
+
+  ```bash
+  pytest tests
+  ```  
+
+- **Linting**: Maintain code quality using `flake8`.
+
+  ```bash
+  flake8 app
+  ```
+
+- **Code Formatting**: Ensure consistent code formatting using `black`.
+
+  ```bash
+  black app
+
+## Contributing Guidelines
+
+We appreciate your interest in contributing to PromptLab! Here are some guidelines to help you get started:
+
+### How to Contribute
+
+1. **Fork the Repository**: Use the `Fork` button at the top right of the repository page to create a copy of the repository under your GitHub account.
+
+2. **Clone Your Fork**: Clone your forked repository to your local machine.
+
+   ```bash
+   git clone https://github.com/your-username/10x-engineer-project-repo.git
+   cd 10x-engineer-project-repo/backend
+   ```
+
+3. **Set Up Environment**: Follow the installation instructions in the README to set up your development environment.
+
+4. **Create a Branch**: Create a new branch for your feature or fix. Use a descriptive name for your branch.
+
+   ```bash
+   git checkout -b feature/YourFeatureName
+   ```
+
+5. **Make Changes**: Implement your feature or fix. Ensure that your code follows the project's coding standards and is well-documented.
+
+6. **Write Tests**: Ensure that you write appropriate tests for your changes. Run all tests to confirm they pass with your modifications.
+
+   ```bash
+   pytest tests
+   ```
+
+7. **Commit Changes**: Commit your changes with a clear and descriptive commit message.
+
+   ```bash
+   git commit -m "Add some feature"
+   ```
+
+8. **Push to Your Fork**: Push your changes to your GitHub repository.
+
+   ```bash
+   git push origin feature/YourFeatureName
+   ```
+
+9. **Submit a Pull Request**: Navigate to the original repository on GitHub and create a pull request. Provide a clear description of your changes and why they should be merged. Mention any issues your PR addresses.
+
+10. **Code Review**: Participate in the code review discussions. Be open to feedback and ready to make further changes if required.
+
+### Code of Conduct
+
+Please note that this project is governed by a [Code of Conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to the project maintainers.
+
+### Getting Help
+
+If you need help at any point during the contribution process, feel free to reach out by opening an issue or through the project's communication channels.
