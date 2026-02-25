@@ -1,0 +1,16 @@
+[flake8]
+max-line-length = 127
+max-complexity = 10
+exclude =
+    .git,
+    __pycache__,
+    venv,
+    .venv,
+    htmlcov,
+    .pytest_cache,
+    *.egg-info
+# Ignore style warnings - only fail on critical errors
+# D-codes: docstring style (non-critical)
+# W503: line break before binary operator (style preference)
+# E303: too many blank lines (formatting)
+ignore = W293, W291, W292, E303, W503, D100, D101, D102, D103, D104, D105, D106, D107, D400, D401

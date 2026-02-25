@@ -4,7 +4,7 @@ This document guides AI assistants on how to write code for the PromptLab projec
 
 ## Project Overview
 
-PromptLab is an AI prompt engineering platform built with Python/FastAPI backend. The developer is transitioning from Node.js/PHP, so explanations should reference those ecosystems when helpful.
+PromptLab is an AI prompt engineering platform built with Python/FastAPI backend.
 
 ## 1. Coding Standards
 
@@ -13,14 +13,14 @@ PromptLab is an AI prompt engineering platform built with Python/FastAPI backend
 - **Functions and variables**: `snake_case` (Python standard)
   - Example: `get_prompt()`, `user_id`, `created_at`
   - Like: JavaScript/PHP but with underscores instead of camelCase
-  
+
 - **Classes**: `PascalCase`
   - Example: `PromptCreate`, `CollectionResponse`, `StorageManager`
   - Same as: JavaScript classes, PHP classes
-  
+
 - **Constants**: `UPPER_SNAKE_CASE`
   - Example: `MAX_CONTENT_LENGTH`, `DEFAULT_SORT_ORDER`
-  
+
 - **Private attributes**: Prefix with underscore
   - Example: `_prompts`, `_collections`
   - Like: Private fields in TypeScript/PHP
@@ -39,7 +39,7 @@ def get_prompt(prompt_id):
     return storage.get_prompt(prompt_id)
 ```
 
-Think of type hints like TypeScript types or PHP type declarations - they're not just documentation, they enable IDE autocomplete and catch errors early.
+Type hints enable IDE autocomplete, catch errors early, and serve as inline documentation.
 
 ### Import Organization
 
@@ -86,7 +86,7 @@ from app.storage import storage
 
 ### Pydantic Models
 
-Use Pydantic for all data validation (similar to Zod in Node.js or DTOs in PHP):
+Use Pydantic for all data validation:
 
 ```python
 class PromptCreate(BaseModel):
@@ -148,7 +148,7 @@ backend/
 │   ├── api.py           # FastAPI routes (like routes/ in Express)
 │   ├── models.py        # Pydantic schemas (like types/ in TypeScript)
 │   ├── storage.py       # Data layer (like repositories/ in PHP)
-│   └── utils.py         # Helper functions (like utils/ in Node.js)
+│   └── utils.py         # Helper functions
 ├── tests/
 │   ├── __init__.py
 │   ├── conftest.py      # pytest fixtures (like jest.setup.js)
@@ -160,7 +160,7 @@ backend/
 ### Naming Rules
 
 - Test files: `test_*.py` (pytest convention)
-- No `index.py` - Python doesn't use index files like Node.js
+- No `index.py` - Python doesn't use index files
 - Use `__init__.py` only for package initialization, keep it minimal
 - One class per file is not required (unlike Java)
 
@@ -428,16 +428,16 @@ Use for public functions (Google style):
 ```python
 def search_prompts(prompts: List[Prompt], query: str) -> List[Prompt]:
     """Search prompts by title or content.
-    
+
     Args:
         prompts: List of prompts to search
         query: Search query string
-        
+
     Returns:
         List of prompts matching the query
     """
     query_lower = query.lower()
-    return [p for p in prompts if query_lower in p.title.lower() 
+    return [p for p in prompts if query_lower in p.title.lower()
             or query_lower in p.content.lower()]
 ```
 

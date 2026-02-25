@@ -1,0 +1,12 @@
+{
+    "exit_code_by_key": {
+        "app.models.x_generate_id__mutmut_1": -11
+    },
+    "durations_by_key": {
+        "app.models.x_generate_id__mutmut_1": 0.914269
+    },
+    "type_check_error_by_key": {},
+    "estimated_durations_by_key": {
+        "app.models.x_generate_id__mutmut_1": 1.5971027913910802
+    }
+}
