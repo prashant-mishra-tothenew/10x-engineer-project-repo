@@ -1,0 +1,57 @@
+/* frontend/src/components/prompts/PromptCard.module.css */
+
+.card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  cursor: pointer;
+  transition: box-shadow 0.2s;
+}
+
+.card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.collectionBadge {
+  background-color: var(--secondary-color);
+  color: #fff;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+.content {
+  margin: 12px 0;
+  color: #555;
+}
+
+.timestamps {
+  font-size: 0.8rem;
+  color: #888;
+  margin-bottom: 8px;
+}
+
+.actions {
+  margin-top: 10px;
+}
+
+.actions button {
+  margin-right: 8px;
+  padding: 5px 10px;
+  background-color: var(--primary-color);
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.actions button:hover {
+  background-color: var(--primary-color-hover);
+}

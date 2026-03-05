@@ -1,0 +1,99 @@
+/* src/components/layout/Sidebar.module.css */
+
+.sidebar {
+  background-color: var(--color-surface);
+  border-right: 1px solid var(--color-border);
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: calc(var(--z-dropdown) + 1);
+  transform: translateX(-100%);
+  transition: transform var(--transition-base);
+  overflow-y: auto;
+  padding-top: 70px; /* Space for header */
+}
+
+.sidebar.open {
+  transform: translateX(0);
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: var(--z-dropdown);
+  animation: fadeIn var(--transition-fast);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.nav {
+  padding: var(--spacing-lg) 0;
+}
+
+.navList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navList li {
+  margin-bottom: var(--spacing-xs);
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md) var(--spacing-lg);
+  color: var(--color-text-primary);
+  text-decoration: none;
+  transition: background-color var(--transition-fast);
+  min-height: 44px;
+}
+
+.navLink:hover {
+  background-color: var(--color-background);
+}
+
+.navLink:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: -2px;
+}
+
+.navLink.active {
+  background-color: var(--color-primary);
+  color: white;
+  font-weight: 600;
+}
+
+.icon {
+  font-size: var(--font-size-xl);
+  line-height: 1;
+}
+
+/* Desktop: Always visible, no backdrop */
+@media (min-width: 1024px) {
+  .sidebar {
+    transform: translateX(0);
+    position: sticky;
+    top: 70px;
+    height: calc(100vh - 70px);
+  }
+
+  .backdrop {
+    display: none;
+  }
+}

@@ -1,0 +1,30 @@
+/* src/components/layout/Layout.module.css */
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-background);
+}
+
+.appBody {
+  display: flex;
+  flex: 1;
+  position: relative;
+}
+
+.content {
+  flex: 1;
+  padding: var(--spacing-lg);
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Desktop: Add left margin for fixed sidebar */
+@media (min-width: 1024px) {
+  .content {
+    margin-left: 250px;
+    padding: var(--spacing-xl);
+  }
+}

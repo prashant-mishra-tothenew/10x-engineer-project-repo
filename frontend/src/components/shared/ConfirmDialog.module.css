@@ -1,0 +1,114 @@
+/* ConfirmDialog.module.css */
+
+.content {
+  padding: 0.5rem 0;
+}
+
+.message {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-text-primary);
+  margin: 0 0 2rem 0;
+  text-align: center;
+}
+
+.actions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: flex-end;
+  margin-top: 1.5rem;
+}
+
+.cancelButton,
+.confirmButton {
+  padding: 0.625rem 1.5rem !important;
+  border-radius: 6px !important;
+  font-size: 0.9375rem !important;
+  font-weight: 500 !important;
+  cursor: pointer;
+  transition: all 0.2s ease !important;
+  min-width: 100px;
+  font-family: inherit;
+}
+
+.cancelButton {
+  background-color: #f3f4f6 !important;
+  color: #374151 !important;
+  border: 1px solid #d1d5db !important;
+}
+
+.cancelButton:hover:not(:disabled) {
+  background-color: #e5e7eb !important;
+  border-color: #9ca3af !important;
+}
+
+.confirmButton {
+  color: white !important;
+  font-weight: 600 !important;
+  border: none !important;
+}
+
+/* Danger variant (default for delete actions) */
+.confirmButton.danger {
+  background-color: #dc3545 !important;
+}
+
+.confirmButton.danger:hover:not(:disabled) {
+  background-color: #c82333 !important;
+  box-shadow: 0 2px 8px rgba(220, 53, 69, 0.3) !important;
+  transform: translateY(-1px);
+}
+
+/* Primary variant */
+.confirmButton.primary {
+  background-color: #2563eb !important;
+}
+
+.confirmButton.primary:hover:not(:disabled) {
+  background-color: #1d4ed8 !important;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3) !important;
+  transform: translateY(-1px);
+}
+
+/* Warning variant */
+.confirmButton.warning {
+  background-color: #ffc107 !important;
+  color: #000 !important;
+}
+
+.confirmButton.warning:hover:not(:disabled) {
+  background-color: #e0a800 !important;
+  box-shadow: 0 2px 8px rgba(255, 193, 7, 0.3) !important;
+  transform: translateY(-1px);
+}
+
+.cancelButton:disabled,
+.confirmButton:disabled {
+  opacity: 0.6 !important;
+  cursor: not-allowed !important;
+}
+
+/* Mobile responsive */
+@media (max-width: 480px) {
+  .actions {
+    flex-direction: column-reverse;
+    gap: 0.5rem;
+  }
+
+  .cancelButton,
+  .confirmButton {
+    width: 100%;
+  }
+}
+
+/* Dark theme support */
+[data-theme='dark'] .cancelButton {
+  background-color: #374151 !important;
+  color: #f3f4f6 !important;
+  border-color: #4b5563 !important;
+}
+
+[data-theme='dark'] .cancelButton:hover:not(:disabled) {
+  background-color: #4b5563 !important;
+  border-color: #6b7280 !important;
+}

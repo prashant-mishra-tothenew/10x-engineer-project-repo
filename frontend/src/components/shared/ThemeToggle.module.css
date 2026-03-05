@@ -1,0 +1,38 @@
+.toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--spacing-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--border-radius);
+  transition: background-color 0.2s, transform 0.2s;
+  color: var(--color-text-primary);
+  min-width: 44px;
+  min-height: 44px;
+}
+
+.toggle:hover {
+  background-color: var(--color-hover);
+  transform: scale(1.1);
+}
+
+.toggle:active {
+  transform: scale(0.95);
+}
+
+.toggle:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s ease;
+}
+
+.toggle:hover .icon {
+  transform: rotate(20deg);
+}

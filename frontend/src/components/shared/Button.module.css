@@ -1,0 +1,49 @@
+/* frontend/src/components/shared/Button.module.css */
+
+.button {
+  font-size: 16px;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.button.primary {
+  background-color: var(--color-primary);
+  color: #fff;
+}
+
+.button.secondary {
+  background-color: var(--color-secondary);
+  color: #fff;
+}
+
+.button.danger {
+  background-color: var(--color-danger);
+  color: #fff;
+}
+
+.button:disabled,
+.button.loading {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.loader {
+  border: 2px solid transparent;
+  border-top: 2px solid #fff;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

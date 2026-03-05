@@ -1,0 +1,71 @@
+/* src/components/layout/Header.module.css */
+
+.header {
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: 0;
+  z-index: var(--z-dropdown);
+}
+
+.nav {
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-md) var(--spacing-lg);
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  color: var(--color-primary);
+  margin: 0;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.menuButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  padding: var(--spacing-sm);
+  cursor: pointer;
+  color: var(--color-text-primary);
+  min-width: 44px;
+  min-height: 44px;
+  border-radius: var(--radius-sm);
+  transition: background-color var(--transition-fast);
+}
+
+.menuButton:hover {
+  background-color: var(--color-background);
+}
+
+.menuButton:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.hamburger {
+  font-size: var(--font-size-2xl);
+  line-height: 1;
+}
+
+/* Hide hamburger menu on desktop */
+@media (min-width: 1024px) {
+  .menuButton {
+    display: none;
+  }
+}
